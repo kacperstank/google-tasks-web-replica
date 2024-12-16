@@ -44,7 +44,7 @@ A feature-rich **Google Tasks replica** built with modern web technologies, desi
 ## **Screenshots**
 
 ### Home View
-![Home View](https://via.placeholder.com/800x400.png?text=Home+View)
+![Home View](task-view-desktop.png)
 
 ---
 
