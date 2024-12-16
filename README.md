@@ -41,6 +41,29 @@ A feature-rich **Google Tasks replica** built with modern web technologies, desi
 
 ---
 
+## **Project Structure**
+
+The project is organized into two main directories:
+
+```plaintext
+project-root/
+│
+├── backend/       # Django API for task management
+│   ├── manage.py
+│   ├── task_manager_api/
+│   ├── tasks/
+│   └── ...
+│
+├── frontend/      # React
+│   ├── src/
+│   ├── index.html
+│   ├── package.json
+│   └── ...
+│
+├── task-view-desktop.png  # Screenshot used in README
+└── README.md      # Documentation
+```
+
 ## **Screenshots**
 
 ### Home View
