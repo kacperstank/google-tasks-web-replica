@@ -1,0 +1,491 @@
+/* ==========================
+   Global Styles
+   ========================== */
+
+/* Define reusable variables */
+:root {
+  --primary-font: "Google Sans", Arial, sans-serif;
+  --background-color: #f8fafd;
+  --primary-color: #333;
+  --accent-color: #2679EB;
+  --hover-gray: #e0e0e0;
+  --light-blue: #e7f1ff;
+}
+
+/* Apply global font and box-sizing */
+* {
+  font-family: var(--primary-font);
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: var(--primary-font);
+  background: var(--background-color);
+  color: var(--primary-color);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+/* ==========================
+   Modal Styling (Global Overlay)
+   ========================== */
+
+/* Backdrop for modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal container */
+.modal-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Modal actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-close-btn,
+.modal-save-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-close-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.modal-save-btn {
+  background: var(--accent-color);
+  color: white;
+}
+
+
+/* ==========================
+   Toast Notification (Global Overlay)
+   ========================== */
+
+/* Toast container styling */
+.toast {
+  position: fixed; /* Always visible at the bottom left */
+  bottom: 20px; /* Distance from the bottom edge */
+  left: 20px; /* Distance from the left edge */
+  background: #333; /* Dark background for contrast */
+  color: white; /* White text for readability */
+  padding: 1rem 1.5rem; /* Default spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex; /* Align content horizontally */
+  justify-content: space-between; /* Space between text and buttons */
+  align-items: center; /* Vertically center content */
+  gap: 1rem; /* Space between elements */
+  z-index: 1000; /* Ensure it is above other elements */
+  max-width: 400px; /* Prevent it from being too wide */
+  width: auto; /* Adjust to content size by default */
+}
+
+/* Undo button in the toast */
+.toast-undo-btn {
+  color: #2679EB; /* Accent blue for clickable text */
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+  font-weight: bold; /* Emphasize clickable text */
+}
+
+/* Close button in the toast */
+.toast-close-btn {
+  background: none; /* Transparent background */
+  border: none; /* No border */
+  color: white; /* White for visibility */
+  font-size: 1.25rem; /* Larger close icon */
+  cursor: pointer; /* Pointer cursor */
+}
+
+
+/* ==========================
+   No Tasks View (Global Overlay)
+   ========================== */
+
+.no-tasks-placeholder {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.no-tasks-image {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.no-tasks-text {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 400;
+}
+
+
+/* ==========================
+   Main Container
+   ========================== */
+
+/* Wrapper for content */
+.main-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem; /* Space between sections */
+  width: 100%;
+}
+
+
+/* ==========================
+   Add New Task Button (Header)
+   ========================== */
+
+/* Add Task button with hover effect */
+.add-task-link {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: none;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  background-color: transparent;
+}
+
+.add-task-link:hover {
+  background-color: var(--light-blue);
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+/* Add Task icon */
+.add-task-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: invert(33%) sepia(92%) saturate(5235%) hue-rotate(206deg) brightness(93%) contrast(96%);
+}
+
+
+/* ==========================
+   Task Form
+   ========================== */
+
+/* Task Form Container: Initial Hidden State */
+.task-form-container {
+  max-height: 0; /* Initially collapsed */
+  opacity: 0; /* Fully transparent */
+  overflow: hidden; /* Prevent content overflow */
+  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Task Form Container: Visible State */
+.task-form-container-visible {
+  max-height: 300px; /* Large enough to fit the form */
+  opacity: 1; /* Fully visible */
+}
+
+/* Form styling */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.5px solid #e5e5e5; /* Subtle divider */
+}
+
+/* Input and textarea styling */
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--primary-color);
+  background-color: #fafafa;
+  transition: border 0.3s ease;
+  resize: none;
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+  border-color: var(--accent-color);
+  background-color: #fff;
+}
+
+/* Form labels */
+.task-form-row label {
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+}
+
+
+/* ==========================
+   Task List Section
+   ========================== */
+
+/* Task list header */
+.task-list-header {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Task list container */
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+
+/* ==========================
+   Individual Task Items
+   ========================== */
+
+/* Task items styling */
+.task-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border-radius: 0;
+  transition: background-color 0.2s ease, border-radius 0.2s ease;
+}
+
+.task-list-item:hover {
+  background-color: var(--light-blue);
+  border-radius: 16px;
+}
+
+/* Task label */
+.task-list-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  width: 100%;
+  flex: 1;
+}
+
+.task-list-item label .task-title {
+  font-size: 1rem;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Checkbox styling */
+.task-list-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-color);
+}
+
+/* Task content container */
+.task-content {
+  display: flex;
+  flex-direction: column; /* Stack title and description */
+  gap: 0.25rem; /* Space between title and description */
+}
+
+/* Task title styling */
+.task-title {
+  font-size: 1rem;
+  font-weight: 700; /* Bold title */
+  color: var(--primary-color); /* Use primary color */
+}
+
+/* Task description styling */
+.task-details {
+  font-size: 0.875rem; /* Smaller font size */
+  font-weight: 400; /* Regular weight */
+  color: #666; /* Subtle gray color */
+}
+
+
+/* ==========================
+   Task Actions (Edit & Delete Buttons)
+   ========================== */
+
+/* Actions container */
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Button styling */
+.task-actions button {
+  background: transparent;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-radius 0.2s ease;
+}
+
+.task-actions button:hover {
+  background-color: var(--hover-gray);
+  border-radius: 16px;
+}
+
+/* Icons for actions */
+.task-edit-btn .material-symbols-outlined,
+.task-delete-btn .material-symbols-outlined {
+  font-size: 1.25rem;
+}
+
+/* ==========================
+   Completed Tasks
+   ========================== */
+.completed-tasks-container {
+  display: flex;
+  align-items: center; /* Vertically centers content */
+  gap: 0.5rem; /* Space between the icon and text */
+  cursor: pointer; /* Show pointer cursor for interactivity */
+  font-size: 1.1rem;
+  font-weight: 250;
+  color: var(--primary-color); /* Light gray color */
+  margin-top: 1rem;
+}
+
+.completed-tasks-icon {
+  font-size: 1.1rem; /* Adjust icon size */
+  color: #9e9e9e;
+}
+
+/* Completed Tasks Container: Hidden State */
+.completed-tasks-list {
+  max-height: 0; /* Initially collapsed */
+  opacity: 0; /* Fully transparent */
+  overflow: hidden; /* Prevent content overflow */
+  transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Completed Tasks Container: Visible State */
+.completed-tasks-list-visible {
+  max-height: 1000px; /* Large enough to fit content */
+  opacity: 1; /* Fully visible */
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+
+/* Small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .main-container {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .task-list {
+    gap: 0.5rem;
+  }
+
+  .task-list-item {
+    padding: 0.4rem 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .task-actions {
+    gap: 0.3rem;
+  }
+
+  .task-actions button {
+    padding: 0.3rem;
+  }
+
+  .task-edit-btn .material-symbols-outlined,
+  .task-delete-btn .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  .toast {
+    bottom: 10px; /* Bring closer to the bottom on small screens */
+    left: 10px; /* Reduce left margin */
+    padding: 0.75rem 1rem; /* Reduce padding */
+    font-size: 0.9rem; /* Smaller font size */
+    max-width: 90%; /* Use most of the screen width */
+    border-radius: 6px; /* Slightly smaller rounded corners */
+  }
+
+  .toast-undo-btn {
+    font-size: 0.85rem; /* Slightly smaller undo text */
+  }
+
+  .toast-close-btn {
+    font-size: 1rem; /* Smaller close icon */
+  }
+}
+
+/* Large devices (min-width: 1024px) */
+@media (min-width: 1024px) {
+  body {
+    max-width: 800px;
+  }
+
+  .main-container {
+    gap: 2rem;
+  }
+
+  .task-list-header {
+    font-size: 1.25rem;
+  }
+}
