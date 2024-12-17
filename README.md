@@ -1,6 +1,32 @@
-# **Google Tasks Replica Web App**
+<!-- Centered badges -->
+<p align="center">
+    <img src="https://img.shields.io/badge/Frontend-React-blue" alt="Frontend: React">
+    <img src="https://img.shields.io/badge/Backend-Django-green" alt="Backend: Django">
+    <img src="https://img.shields.io/badge/Database-PostgreSQL-9cf" alt="Database: PostgreSQL">
+    <img src="https://img.shields.io/badge/Version-1.0-orange" alt="Version 1.0">
+</p>
 
-A feature-rich **Google Tasks replica** built with modern web technologies, designed to manage tasks with an intuitive **Material3-inspired design**. This app includes functionalities like adding, editing, deleting, and filtering tasks, providing a seamless and responsive user experience.
+<!-- Current version table -->
+<p align="center">
+<table>
+<tbody>
+<td align="center">
+<img width="2000" height="0"><br>
+<b>🚀 Current Version: 1.0 - Development in Progress</b><br>
+<small>This project aims to replicate the core experience of Google Tasks while introducing unique features and follows Material 3 design principles. Upcoming updates will include enhancements like dark mode and multiple task lists.</small>
+<img width="2000" height="0">
+</td>
+</tbody>
+</table>
+</p>
+
+---
+
+## 📋 **What and Why?**
+
+A feature-rich **Google Tasks-inspired web app**, built with modern web technologies. It includes core task management features like adding, editing, deleting, and filtering tasks while adhering to **Material 3 design principles**.
+
+This project reflects my passion for Material 3 design and the clean, intuitive aesthetics of Google’s ecosystem. Since a young age, I have explored custom ROMs and admired the stock Android and Google UI feel, which continues to inspire me to build projects that embrace this design philosophy.
 
 ---
 
@@ -17,10 +43,6 @@ A feature-rich **Google Tasks replica** built with modern web technologies, desi
 - Built with **Material3 design principles** for a clean and consistent look.
 - Responsive design that adapts to different screen sizes for desktop and mobile users.
 - Smooth animations for an engaging user experience.
-
-### 🌐 **Backend Integration**
-- Powered by a **Django API** that connects to a **PostgreSQL database**.
-- Fully supports RESTful CRUD operations.
 
 ### 🔍 **Additional Features**
 - Toast notifications for user actions like task deletion and undo.
@@ -40,29 +62,6 @@ A feature-rich **Google Tasks replica** built with modern web technologies, desi
 - **PostgreSQL**: A reliable and efficient relational database.
 
 ---
-
-## **Project Structure**
-
-The project is organized into two main directories:
-
-```plaintext
-project-root/
-│
-├── backend/       # Django API for task management
-│   ├── manage.py
-│   ├── task_manager_api/
-│   ├── tasks/
-│   └── ...
-│
-├── frontend/      # React
-│   ├── src/
-│   ├── index.html
-│   ├── package.json
-│   └── ...
-│
-├── task-view-desktop.png  # Screenshot used in README
-└── README.md      # Documentation
-```
 
 ## **Screenshots**
 
@@ -88,5 +87,6 @@ project-root/
 ## **Contact**
 
 This project is authored by **Kacper Stankiewicz**.  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/kacperstank)
 
 ---
