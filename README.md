@@ -88,6 +88,5 @@ project-root/
 ## **Contact**
 
 This project is authored by **Kacper Stankiewicz**.  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/kacperstank)
 
 ---
