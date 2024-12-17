@@ -1,3 +1,7 @@
+"""
+Converts complex Task objects into JSON.
+"""
+
 from rest_framework import serializers
 from .models import Task
 
