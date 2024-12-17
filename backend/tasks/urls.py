@@ -1,3 +1,8 @@
+"""
+Connects API views to specific URL paths.
+It defines the endpoints but doesn't make them accessible.
+"""
+
 from django.urls import path
 from .views import TaskListCreateView, TaskDetailView
 
