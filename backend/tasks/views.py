@@ -1,3 +1,7 @@
+"""
+Defines API views for Task model CRUD operations.
+"""
+
 from rest_framework import generics
 from .models import Task
 from .serializers import TaskSerializer
